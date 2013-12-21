@@ -52,13 +52,14 @@ var app = {
         // If there is no current page (app just started) -> No transition: Position new page in the view port
         if (!this.currentPage) {
             $(page.el).attr('class', 'page stage-center');
+            $(page.el).attr('id', 'homePage');
             $('body').append(page.el);
             this.currentPage = page;
             return;
         }
 
         // Cleaning up: remove old pages that were moved out of the viewport
-        $('.stage-right, .stage-left').not('.homePage').remove();
+        $('.stage-right, .stage-left').not('#homePage').remove();
 
         if (page === app.homePage) {
             // Always apply a Back transition (slide from left) when we go back to the search page
