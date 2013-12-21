@@ -1,15 +1,5 @@
 var HomeView = function(store) {
 
-    this.initialize = function() {
-        // Define a div wrapper for the view. The div wrapper is used to attach events.
-        this.el = $('<div/>');
-//        this.el.on('keyup', '.search-key', this.findByName);
-        var that = this;
-        this.el.on('keyup', '.search-key', function(){that.findByName();});
-    };
-
-    this.initialize();
-
     this.render = function() {
         this.el.html(HomeView.template());
         return this;
@@ -20,6 +10,16 @@ var HomeView = function(store) {
             $('.employee-list').html(HomeView.liTemplate(employees));
         });
     };
+
+    this.initialize = function() {
+        // Define a div wrapper for the view. The div wrapper is used to attach events.
+        this.el = $('<div/>');
+        this.el.on('keyup', '.search-key', this.findByName);
+//        var that = this;
+//        this.el.on('keyup', '.search-key', function(){that.findByName();});
+    };
+
+    this.initialize();
 
 }
 
